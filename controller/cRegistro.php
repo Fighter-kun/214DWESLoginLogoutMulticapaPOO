@@ -11,7 +11,7 @@
 
 //Si el usuario pulsa el botón 'Cancelar', mando al usuario al index de DWES
 if(isset($_REQUEST['cancelar'])){ 
-    $_SESSION['paginaEnCurso'] = 'login'; // Asigno a la pagina en curso la pagina de login
+    $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior']; // Asigno a la pagina en curso la pagina de anterior que es la de login
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }

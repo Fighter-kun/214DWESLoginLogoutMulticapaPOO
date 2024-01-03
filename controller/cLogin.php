@@ -18,8 +18,17 @@ if(isset($_REQUEST['cancelar'])){
 
 //Si el usuario pulsa el botón 'Registrarse', mando al usuario al index de DWES
 if(isset($_REQUEST['registrarse'])){ 
+    $_SESSION['paginaAnterior'] = 'login'; // Asigno a la página anterior la página de login
     $_SESSION['paginaEnCurso'] = 'registro'; // Asigno a la pagina en curso la pagina de registro
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
+
+//Si el usuario pulsa el botón 'IniciarSesion', mando al usuario al index de DWES
+if(isset($_REQUEST['iniciarSesion'])){ 
+    $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la pagina en curso la pagina de inicioPrivado
+    header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+    exit;
+}
+
 require_once $view['layout']; // Cargo la vista de 'login'

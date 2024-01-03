@@ -1,0 +1,120 @@
+<?php
+
+/**
+ * @author Carlos García Cachón
+ * @version 1.0
+ * @since 03/01/2024
+ * @copyright Todos los derechos reservados a Carlos García
+ * 
+ * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase UsuarioPDO
+ * 
+ */
+class UsuarioPDO implements UsuarioDB {
+
+    /**
+     * Valida las credenciales de un usuario.
+     *
+     * @param string $codUsuario El código de usuario a validar.
+     * @param string $password La contraseña del usuario a validar.
+     * 
+     * @return object Usuario Un objeto del usuario en caso positivo
+     * @return boolena null En caso de no ser valido
+     */
+    public static function validarUsuario($codUsuario, $password) {
+        $oUsuario = null; // Inicializamo la variable para el usuario a validar
+        //CONSULTA SQL - SELECT
+        $consulta = <<<CONSULTA
+            SELECT * FROM T01_Usuario 
+            WHERE T01_CodUsuario='{$codUsuario}' 
+            AND T01_Password=hash("sha256", ("{$codUsuario} . {$password}")); 
+        CONSULTA;
+
+        $resultado = DBPDO::ejecutarConsulta($consulta); // Ejecuto la consulta
+
+        if ($resultado->rowCount() > 0) { // Si la consulta tiene más de '0' valores
+            $oUsuario = $resultado->fetchObject(); // Guardo en la variable el resultado de la consulta en forma de objeto
+
+            if ($oUsuario) { // Instancio un nuevo objeto Usuario con todos sus datos
+                $oUsuario = new Usuario($oUsuario->T01_CodUsuario, $oUsuario->T01_Password, $oUsuario->T01_DescUsuario, $oUsuario->T01_NumConexiones, $oUsuario->T01_FechaHoraUltimaConexion, $oUsuario->T01_FechaHoraUltimaConexionAnterior, $oUsuario->T01_ImagenUsuario, $oUsuario->T01_Perfil);
+            }
+        }
+        return $oUsuario; // Y lo devuelvo
+    }
+
+    /**
+     * Metodo que permite dar de alta un usuario nuevo en la BD
+     * 
+     * @param string $codUsuario El codigo del usuario
+     * @param string $password La password del usuario
+     * @param string $descUsuario La descripcion del usuario
+     * 
+     * @return boolean false | object Usuario Devuelve un objeto Usuario nuevo si se ha podido crear, de lo contrario devuelve un @boolean que sera 'false'
+     */
+    public static function altaUsuario($codUsuario, $password, $descUsuario) {
+        //CONSULTA SQL - INSERT
+        $consultaCrearUsuario = <<<CONSULTA
+            INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario) 
+            VALUES ("{$codUsuario}", hash("sha256", ("{$codUsuario} . {$password}")), "{$descUsuario}");
+        CONSULTA;
+
+        if (DBPDO::ejecutarConsulta($consultaCrearUsuario)) { // Ejecuto la consulta
+            return new Usuario($codUsuario, $password, $descUsuario, 1, now(), null, 'usuario'); // Creo el Usuario con los valores recogidos
+        } else {
+            return false; // Si la consulta falla devuelvo 'false'
+        }
+    }
+
+    /**
+     * 
+     * Metodo que nos permite modificar la descripción de un Usuario existente en la BD
+     * 
+     * @param object $oUsuario Objeto usuario
+     * @param string $descUsuario La nueva descripción
+     * 
+     * @return boolean | object Un objeto usuario, si el usuario existe y se puede cambiar, de lo contrario un boolean a 'false'
+     */
+    public static function modificarUsuario($oUsuario, $descUsuario) {
+        //CONSULTA SQL - UPDATE
+        $consultaModificarUsuario = <<<CONSULTA
+            UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->getCodUsuario()}";
+        CONSULTA;
+
+        $oUsuario->setDescUsuario($descUsuario);
+
+        if (DBPDO::ejecutarConsulta($consultaModificarUsuario)) { // Ejecuto la consulta
+            return $oUsuario; // Devuelvo un objeto Usuario
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Metodo que nos permite eliminar un usuario existente en la BD
+     * 
+     * @param string $codUsuario El código del usuario
+     * 
+     * @return bool True si el usuario se eliminó correctamente, False si hubo un error.
+     */
+    public static function borrarUsuario($codUsuario) {
+        //CONSULTA SQL - DELETE
+        $consultaEliminarUsuario = <<<CONSULTA
+            DELETE FROM T01_Usuario WHERE T01_CodUsuario = '{$codUsuario}';
+        CONSULTA;
+        return DBPDO::ejecutarConsulta($consultaEliminarUsuario);
+    }
+
+    /**
+     * Metodo que nos permite validar si el código de un usuario existe en la BD
+     * 
+     * @param string $codUsuario El código del usuario
+     * 
+     * @return Un objeto con el primer resultado de la consulta ejecutada
+     */
+    public static function validarCodNoExiste($codUsuario) {
+        //CONSULTA SQL - SELECT
+        $consultaExisteUsuario = <<<CONSULTA
+            SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario='{$codUsuario}';
+        CONSULTA;
+        return DBPDO::ejecutarConsulta($consultaExisteUsuario)->fetchObject();
+    }
+}
