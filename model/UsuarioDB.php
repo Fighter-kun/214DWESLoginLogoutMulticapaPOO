@@ -15,5 +15,5 @@ interface UsuarioDB {
      * @param string $codUsuario El código de usuario a validar.
      * @param string $password La contraseña del usuario a validar.
      */
-    public function validarUsuario($codUsuario, $password);
+    public static function validarUsuario($codUsuario, $password);
 }

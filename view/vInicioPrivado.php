@@ -36,22 +36,18 @@
             /**
              * @author Carlos García Cachón
              * @version 1.0
-             * @since 02/01/2024
+             * @since 04/01/2024
              * @copyright Todos los derechos reservados a Carlos García
              * 
              * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cInicioPrivado' 
              * 
              */
-            if ($_SESSION['NumeroConexiones'] == 1) { // Compruebo si es la primera vez que se conecta y omito la fecha y hora de última conexión
-                echo("<div>" . $aIdiomaSeleccionado[$_COOKIE['idioma']]['bienvenido'] . " " . $_SESSION['DescripcionUsuario'] . " " .
-                $aIdiomaSeleccionado[$_COOKIE['idioma']]['estaEsLa'] . " " . $_SESSION['NumeroConexiones'] . " " .
-                $aIdiomaSeleccionado[$_COOKIE['idioma']]['vezQueTeConectas'] . ";</div>");
+            if ($numeroConexionesUsuario == 1) { // Compruebo si es la primera vez que se conecta y omito la fecha y hora de última conexión
+                echo("<div>Bienvenid@ ".$descripcionUsuario." esta es la ".$numeroConexionesUsuario." vez que te conectas;</div>");
             } else {
                 // Si se a conectado más veces muestro toda la información
-                echo("<div>" . $aIdiomaSeleccionado[$_COOKIE['idioma']]['bienvenido'] . " " . $_SESSION['DescripcionUsuario'] . " " .
-                $aIdiomaSeleccionado[$_COOKIE['idioma']]['estaEsLa'] . " " . $_SESSION['NumeroConexiones'] . " " .
-                $aIdiomaSeleccionado[$_COOKIE['idioma']]['vezQueTeConectas'] . "; " . " " .
-                $aIdiomaSeleccionado[$_COOKIE['idioma']]['ultimaConexion'] . " " . $_SESSION['FechaHoraUltimaConexionAnterior'] . "</div>");
+                echo("<div>Bienvenid@ ".$descripcionUsuario." esta es la ".$numeroConexionesUsuario." vez que te conectas; "
+                        . "usted se conectó por última vez el ".$fechaHoraUltimaConexionAnterior."</div>");
             }
             ?> 
         </div>

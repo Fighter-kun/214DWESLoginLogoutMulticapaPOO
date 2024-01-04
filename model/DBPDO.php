@@ -28,11 +28,11 @@ class DBPDO implements DB {
         }catch(PDOException $excepcion){ // Código que se ejecuta si hay algún error
             $_SESSION['paginaEnCurso'] = 'error'; // Asigno a la página en curso la página de error
             /**
-             * Creo una variable de SESSION llamada 'error' y almaceno un objeto de la clase ERROR
+             * Creo una variable de SESSION llamada 'error' y almaceno un objeto de la clase ErrorApp
              * 
              * En la variable '$_SESSION['paginaAnterior']' almacenamos la página anterior para poder volver una vez visualicemos el error en 'vError.php'
              */
-            $_SESSION['error'] = new ERROR($excepcion->getCode(), $excepcion->getMessage(), $excepcion->getFile(), $excepcion->getLine(), $_SESSION['paginaAnterior']);
+            $_SESSION['error'] = new ErrorApp($excepcion->getCode(), $excepcion->getMessage(), $excepcion->getFile(), $excepcion->getLine(), $_SESSION['paginaAnterior']);
             header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
             exit;
         } finally{

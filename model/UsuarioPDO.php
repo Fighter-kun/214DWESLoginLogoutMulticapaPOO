@@ -10,7 +10,6 @@
  * 
  */
 class UsuarioPDO implements UsuarioDB {
-
     /**
      * Valida las credenciales de un usuario.
      *
@@ -25,17 +24,25 @@ class UsuarioPDO implements UsuarioDB {
         //CONSULTA SQL - SELECT
         $consulta = <<<CONSULTA
             SELECT * FROM T01_Usuario 
-            WHERE T01_CodUsuario='{$codUsuario}' 
-            AND T01_Password=hash("sha256", ("{$codUsuario} . {$password}")); 
+            WHERE T01_CodUsuario = '{$codUsuario}' 
+            AND T01_Password = SHA2('{$codUsuario}{$password}', 256);
         CONSULTA;
 
-        $resultado = DBPDO::ejecutarConsulta($consulta); // Ejecuto la consulta
+        $resultado = DBPDO::ejecutaConsulta($consulta); // Ejecuto la consulta
 
         if ($resultado->rowCount() > 0) { // Si la consulta tiene más de '0' valores
             $oUsuario = $resultado->fetchObject(); // Guardo en la variable el resultado de la consulta en forma de objeto
 
             if ($oUsuario) { // Instancio un nuevo objeto Usuario con todos sus datos
-                $oUsuario = new Usuario($oUsuario->T01_CodUsuario, $oUsuario->T01_Password, $oUsuario->T01_DescUsuario, $oUsuario->T01_NumConexiones, $oUsuario->T01_FechaHoraUltimaConexion, $oUsuario->T01_FechaHoraUltimaConexionAnterior, $oUsuario->T01_ImagenUsuario, $oUsuario->T01_Perfil);
+                 $oUsuario = new Usuario(
+                    $oUsuario->T01_CodUsuario,
+                    $oUsuario->T01_Password,
+                    $oUsuario->T01_DescUsuario,
+                    $oUsuario->T01_NumConexiones,
+                    $oUsuario->T01_FechaHoraUltimaConexion,
+                    $oUsuario->T01_FechaHoraUltimaConexionAnterior,
+                    $oUsuario->T01_Perfil
+                );
             }
         }
         return $oUsuario; // Y lo devuelvo
@@ -53,12 +60,12 @@ class UsuarioPDO implements UsuarioDB {
     public static function altaUsuario($codUsuario, $password, $descUsuario) {
         //CONSULTA SQL - INSERT
         $consultaCrearUsuario = <<<CONSULTA
-            INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario) 
-            VALUES ("{$codUsuario}", hash("sha256", ("{$codUsuario} . {$password}")), "{$descUsuario}");
+            INSERT INTO T01_Usuario(T01_CodUsuario, T01_Password, T01_DescUsuario, T01_NumConexiones, T01_FechaHoraUltimaConexion) 
+            VALUES ("{$codUsuario}", SHA2("{$codUsuario}{$password}", 256), "{$descUsuario}", 1, now());
         CONSULTA;
-
-        if (DBPDO::ejecutarConsulta($consultaCrearUsuario)) { // Ejecuto la consulta
-            return new Usuario($codUsuario, $password, $descUsuario, 1, now(), null, 'usuario'); // Creo el Usuario con los valores recogidos
+            
+        if (DBPDO::ejecutaConsulta($consultaCrearUsuario)) { // Ejecuto la consulta
+            return new Usuario($codUsuario, $password, $descUsuario, 1, date('Y-m-d H:i:s'), null, 'usuario'); // Creo el Usuario con los valores recogidos
         } else {
             return false; // Si la consulta falla devuelvo 'false'
         }
@@ -76,12 +83,12 @@ class UsuarioPDO implements UsuarioDB {
     public static function modificarUsuario($oUsuario, $descUsuario) {
         //CONSULTA SQL - UPDATE
         $consultaModificarUsuario = <<<CONSULTA
-            UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->getCodUsuario()}";
+            UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->get_CodUsuario()}";
         CONSULTA;
 
         $oUsuario->setDescUsuario($descUsuario);
 
-        if (DBPDO::ejecutarConsulta($consultaModificarUsuario)) { // Ejecuto la consulta
+        if (DBPDO::ejecutaConsulta($consultaModificarUsuario)) { // Ejecuto la consulta
             return $oUsuario; // Devuelvo un objeto Usuario
         } else {
             return false;
@@ -100,7 +107,7 @@ class UsuarioPDO implements UsuarioDB {
         $consultaEliminarUsuario = <<<CONSULTA
             DELETE FROM T01_Usuario WHERE T01_CodUsuario = '{$codUsuario}';
         CONSULTA;
-        return DBPDO::ejecutarConsulta($consultaEliminarUsuario);
+        return DBPDO::ejecutaConsulta($consultaEliminarUsuario);
     }
 
     /**
@@ -115,6 +122,34 @@ class UsuarioPDO implements UsuarioDB {
         $consultaExisteUsuario = <<<CONSULTA
             SELECT T01_CodUsuario FROM T01_Usuario WHERE T01_CodUsuario='{$codUsuario}';
         CONSULTA;
-        return DBPDO::ejecutarConsulta($consultaExisteUsuario)->fetchObject();
+        return DBPDO::ejecutaConsulta($consultaExisteUsuario)->fetchObject();
+    }
+
+    /**
+     * Metodo que nos permite actualizar la última conexión del usuario 
+     * 
+     * @param Object $oUsuario Contenido del objeto usuario
+     * 
+     * @return PDOStatement Devuelve el resultado de la consulta
+     */
+    public static function registrarUltimaConexion($oUsuario) {
+        /**
+         * Utilizando los metodos get() y set() de la clase Usuario,
+         * sumaremos 1 al 'numAcceso' del Usuario y añadiremos la fecha anterior
+         * como la de última conexión para la proxima vez que nos "logeemos"
+         */
+        $oUsuario->set_numAcceso($oUsuario->get_numAcceso() + 1);
+        $oUsuario->set_fechaHoraUltimaConexionAnterior($oUsuario->get_fechaHoraUltimaConexion());
+
+        //CONSULTA SQL - UPDATE
+        $consultaActualizacionFechaUltimaConexion = <<<CONSULTA
+            UPDATE T01_Usuario 
+            SET T01_NumConexiones=T01_NumConexiones+1, T01_FechaHoraUltimaConexion=now() 
+            WHERE T01_CodUsuario='{$oUsuario->get_CodUsuario()}';
+        CONSULTA;
+
+        DBPDO::ejecutaConsulta($consultaActualizacionFechaUltimaConexion);
+
+        return $oUsuario;
     }
 }

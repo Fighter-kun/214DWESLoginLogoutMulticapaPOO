@@ -1,45 +1,40 @@
 <?php
 /**
- * @author Original Alberto Fernandez Ramirez
- * @version 1.0
- * @since 13/01/2022
- * @copyright Copyright (c) 2022, Alberto Fernandez Ramirez
- * 
- * Modificado por @author Carlos García Cachón
+ * @author Carlos García Cachón
  * @version 1.1
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase ERROR
+ * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase ErrorApp
  * 
  */
-class ERROR {
+class ErrorApp {
     /**
-     * Codigo del ERROR
+     * Codigo del ErrorApp
      * 
      * @var string 
      */
     private $codError;
     /**
-     * Descripcion del ERROR
+     * Descripcion del ErrorApp
      * 
      * @var string 
      */
     private $descError;
     /**
-     * Archivo del ERROR
+     * Archivo del ErrorApp
      * 
      * @var string 
      */
     private $archivoError;
     /**
-     * Línea del ERROR
+     * Línea del ErrorApp
      * 
      * @var int 
      */
     private $lineaError;
     /**
-     * Página siguiente, es la página anterior a mostrar el ERROR
+     * Página siguiente, es la página anterior a mostrar el ErrorApp
      * 
      * @var string 
      */
@@ -48,13 +43,13 @@ class ERROR {
     /**
      * Metodo magico __construct()
      * 
-     * Metodo constructor de la clase AppError
+     * Metodo constructor de la clase ErrorApp
      * 
-     * @param string $codError Código de descripción del ERROR
-     * @param string $descError Descripción del ERROR
-     * @param string $archivoError Enlace del ERROR
-     * @param int $lineaError Línea en la que se produjo el ERROR
-     * @param string $paginaSiguiente Página siguiente, es la página anterior a mostrar el ERROR
+     * @param string $codError Código de descripción del ErrorApp
+     * @param string $descError Descripción del ErrorApp
+     * @param string $archivoError Enlace del ErrorApp
+     * @param int $lineaError Línea en la que se produjo el ErrorApp
+     * @param string $paginaSiguiente Página siguiente, es la página anterior a mostrar el ErrorApp
      */
     function __construct($codError, $descError, $archivoError, $lineaError, $paginaSiguiente) {
         $this->codError = $codError;
@@ -66,51 +61,51 @@ class ERROR {
     /**
      * Metodo getCodError()
      * 
-     * Metodo get que devuelve el código del ERROR
+     * Metodo get que devuelve el código del ErrorApp
      * 
      * @return string
      */
-    function getCodError(){
+    function get_CodError(){
         return $this->codError;
     }
     /**
      * Metodo getDescError()
      * 
-     * Metodo get que devuelve la descripción del ERROR
+     * Metodo get que devuelve la descripción del ErrorApp
      * 
      * @return string
      */
-    function getDescError(){
+    function get_DescError(){
        return $this->descError; 
     }
     /**
      * Metodo getArchivoError()
      * 
-     * Metodo get que devuelve el archivo del ERROR
+     * Metodo get que devuelve el archivo del ErrorApp
      * 
      * @return string
      */
-    function getArchivoError(){
+    function get_ArchivoError(){
        return $this->archivoError; 
     }
     /**
      * Metodo getLineaError()
      * 
-     * Metodo get que devuelve la línea en la que se produjo el ERROR
+     * Metodo get que devuelve la línea en la que se produjo el ErrorApp
      * 
      * @return int 
      */
-    function getLineaError(){
+    function get_LineaError(){
        return $this->lineaError; 
     }
     /**
      * Metodo getPaginaSiguiente()
      * 
-     * Metodo get que devuelve la página siguiente, es la página anterior a mostrar el ERROR
+     * Metodo get que devuelve la página siguiente, es la página anterior a mostrar el ErrorApp
      * 
      * @return string
      */
-    function getPaginaSiguiente(){
+    function get_PaginaSiguiente(){
        return $this->paginaSiguiente; 
     }
 }

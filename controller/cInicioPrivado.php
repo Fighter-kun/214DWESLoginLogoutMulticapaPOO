@@ -16,4 +16,22 @@ if(isset($_REQUEST['cerrarSesion'])){
     exit;
 }
 
+//Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
+if(isset($_REQUEST['detalle'])){
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+//Si el usuario pulsa el botón 'Editar Perfil', mando al usuario al index de DWES
+if(isset($_REQUEST['editarPerfil'])){
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+$descripcionUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descUsuario(); // Recupero y almaceno la descripción del usuario actual
+$numeroConexionesUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(); // Recupero y almaceno el número de conexiones del usuario actual
+$fechaHoraUltimaConexionAnterior = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior(); // Recupero y almaceno la fecha y hora de conexión anterior del usuario actual
+
 require_once $view['layout']; // Cargo la vista de 'inicioPrivado'
