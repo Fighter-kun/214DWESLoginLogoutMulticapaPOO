@@ -8,9 +8,10 @@
  * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'indexLoginLogoutMulticapaPOO' 
  * 
  */
-// Incluyo la configuracion de la app y la Base de Datos
+// Incluyo la configuracion de la app, la Base de Datos y los idiomas
 require_once 'config/confAPP.php'; 
 require_once 'config/confDBPDO.php'; 
+//require_once 'config/confIdiomas.php';
 
 // Creo/Recupero la sesión
 session_start(); 
