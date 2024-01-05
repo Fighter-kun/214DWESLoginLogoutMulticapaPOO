@@ -11,21 +11,22 @@
 
 //Si el usuario pulsa el botón 'Cerrar Sesion', mando al usuario al index de DWES
 if(isset($_REQUEST['cerrarSesion'])){
-    session_unset(); // Elimino la sesión
+    session_destroy(); // Elimino la sesión
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
 if(isset($_REQUEST['detalle'])){
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Guardo la página actual como anterior para poder volvera ella
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de WIP (Work in Progress)
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Editar Perfil', mando al usuario al index de DWES
 if(isset($_REQUEST['editarPerfil'])){
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaEnCurso'] = 'miCuenta'; // Asigno a la página en curso la pagina de WIP (Work in Progress)
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }

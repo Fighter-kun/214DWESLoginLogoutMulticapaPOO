@@ -86,7 +86,7 @@ class UsuarioPDO implements UsuarioDB {
             UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->get_CodUsuario()}";
         CONSULTA;
 
-        $oUsuario->setDescUsuario($descUsuario);
+        $oUsuario->set_DescUsuario($descUsuario);
 
         if (DBPDO::ejecutaConsulta($consultaModificarUsuario)) { // Ejecuto la consulta
             return $oUsuario; // Devuelvo un objeto Usuario
