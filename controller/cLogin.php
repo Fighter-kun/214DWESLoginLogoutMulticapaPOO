@@ -70,4 +70,4 @@ if($entradaOK) {
     exit;
 }
 
-require_once $view['layout']; // Cargo la vista de 'login'
+require_once $view[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'login'

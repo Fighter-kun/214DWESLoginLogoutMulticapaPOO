@@ -29,16 +29,32 @@ $controller = [
     'wip' => 'controller/cWIP.php',
     'error' => 'controller/cError.php'
 ];
+
 $view = [
-    'layout' => 'view/layout.php',
-    'inicioPublico' => 'view/vInicioPublico.php',
-    'login' => 'view/vLogin.php',
-    'inicioPrivado' => 'view/vInicioPrivado.php',
-    'tecnologias' => 'view/vTecnologias.php',
-    'rss' => 'view/vRSS.php',
-    'registro' => 'view/vRegistro.php',
-    'miCuenta' => 'view/vMiCuenta.php',
-    'borrarCuenta' => 'view/vBorrarCuenta.php',
-    'wip' => 'view/vWIP.php',
-    'error' => 'view/vError.php'
+    'SP' => [
+        'layout' => 'view/SP/layout.php',
+        'inicioPublico' => 'view/SP/vInicioPublico.php',
+        'login' => 'view/SP/vLogin.php',
+        'inicioPrivado' => 'view/SP/vInicioPrivado.php',
+        'tecnologias' => 'view/SP/vTecnologias.php',
+        'rss' => 'view/SP/vRSS.php',
+        'registro' => 'view/SP/vRegistro.php',
+        'miCuenta' => 'view/SP/vMiCuenta.php',
+        'borrarCuenta' => 'view/SP/vBorrarCuenta.php',
+        'wip' => 'view/SP/vWIP.php',
+        'error' => 'view/SP/vError.php'
+    ],
+    'UK' => [
+        'layout' => 'view/UK/layout.php',
+        'inicioPublico' => 'view/UK/vInicioPublico.php',
+        'login' => 'view/UK/vLogin.php',
+        'inicioPrivado' => 'view/UK/vInicioPrivado.php',
+        'tecnologias' => 'view/UK/vTecnologias.php',
+        'rss' => 'view/UK/vRSS.php',
+        'registro' => 'view/UK/vRegistro.php',
+        'miCuenta' => 'view/UK/vMiCuenta.php',
+        'borrarCuenta' => 'view/UK/vBorrarCuenta.php',
+        'wip' => 'view/UK/vWIP.php',
+        'error' => 'view/UK/vError.php'
+    ]
 ];

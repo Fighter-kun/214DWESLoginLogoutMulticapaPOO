@@ -35,4 +35,4 @@ $descripcionUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descU
 $numeroConexionesUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(); // Recupero y almaceno el número de conexiones del usuario actual
 $fechaHoraUltimaConexionAnterior = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior(); // Recupero y almaceno la fecha y hora de conexión anterior del usuario actual
 
-require_once $view['layout']; // Cargo la vista de 'inicioPrivado'
+require_once $view[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPrivado'
