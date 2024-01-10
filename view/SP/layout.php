@@ -33,7 +33,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <?php require_once $view[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']];?>
+                        <?php require_once (!isset($_COOKIE['idioma']) ? $view['SP'][$_SESSION['paginaEnCurso']] : $view[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']]);?>
                     </div>
                 </div>
             </div>

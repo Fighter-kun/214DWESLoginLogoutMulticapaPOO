@@ -33,4 +33,4 @@ if(isset($_REQUEST['salir'])){
     exit;
 }
 
-require_once $view[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPublico'
+require_once (!isset($_COOKIE['idioma']) ? $view['SP']['layout'] : $view[$_COOKIE['idioma']]['layout']); // Cargo la vista de 'inicioPublico' 
