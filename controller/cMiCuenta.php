@@ -66,5 +66,5 @@ $descripcionUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get
 $nConexionesUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(); // Número de conexiones del usuario actual
 $fechaHoraUltimaConexionAnteriorUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior(); // Fecha y hora de la última conexión del usuario actual
 
-require_once $view[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'miCuenta'
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'miCuenta'
 

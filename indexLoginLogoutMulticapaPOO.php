@@ -20,4 +20,4 @@ if(!isset($_SESSION['paginaEnCurso'])){
     $_SESSION['paginaEnCurso'] = 'inicioPublico'; // Asigno a la pagina en curso la pagina de 'inicioPublico'
 }
 
-require_once $controller[$_SESSION['paginaEnCurso']]; // Cargo la pagina en curso
+require_once $aController[$_SESSION['paginaEnCurso']]; // Cargo la pagina en curso

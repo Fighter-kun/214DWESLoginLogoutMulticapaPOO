@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: CodigoPrograma
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPrivado.php (Castellano)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 05/12/2023
+        Fecha de creación/modificación: 03/02/2024
 -->
 
 <style>
@@ -28,7 +28,8 @@
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cerrarSesion">Cerrar Sesion</button><br><br>
                 <button class="btn btn-secondary" aria-disabled="true" type="submit" name="detalle">Detalle</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Editar Perfil</button>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Editar Perfil</button><br><br>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="mtoDepartamentos">Mto. Departamentos</button>
             </form>        
         </div>
         <div class="col">

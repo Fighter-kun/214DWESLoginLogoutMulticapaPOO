@@ -8,8 +8,9 @@
  * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de configuración
  * 
  */
-require_once 'core/231018libreriaValidacion.php';
+require_once 'core/231018libreriaValidacion.php'; // Incluimos la librería de validación
 
+// Incluimos los archivos de la parte del MODELO
 require_once 'model/DB.php';
 require_once 'model/DBPDO.php';
 require_once 'model/ErrorApp.php';
@@ -17,7 +18,8 @@ require_once 'model/Usuario.php';
 require_once 'model/UsuarioDB.php';
 require_once 'model/UsuarioPDO.php';
 
-$controller = [
+// Creamos dos 'arrays' para indicar el 'path' de los archivos del controlador y la vista
+$aController = [
     'inicioPublico' => 'controller/cInicioPublico.php',
     'login' => 'controller/cLogin.php',
     'inicioPrivado' => 'controller/cInicioPrivado.php',
@@ -30,7 +32,8 @@ $controller = [
     'error' => 'controller/cError.php'
 ];
 
-$view = [
+// En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
+$aView = [
     'SP' => [
         'layout' => 'view/SP/layout.php',
         'inicioPublico' => 'view/SP/vInicioPublico.php',

@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @author Carlos García Cachón
+ * @author Original Alberto Fernández Ramírez
  * @version 1.0
  * @since 03/01/2024
- * @copyright Todos los derechos reservados a Carlos García
+ * Modificado por @author Carlos García Cachón
  * 
  * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase UsuarioPDO
  * 

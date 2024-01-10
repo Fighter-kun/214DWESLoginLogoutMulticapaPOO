@@ -27,4 +27,4 @@ if (isset($_REQUEST['eliminarUsuario'])) { // Comprobamos que el usuario a pulsa
     }
 }
 
-require_once $view[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'borrarCuenta'
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'borrarCuenta'

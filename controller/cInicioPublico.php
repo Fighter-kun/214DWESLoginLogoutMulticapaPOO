@@ -11,7 +11,8 @@
 
  if (!isset($_COOKIE['idioma'])) { // Comprobamos si la cookie esta declarada
    setcookie("idioma", "SP", time() + 2592000); // En caso negativo la creamos y ponemos el valor por defecto
-   
+   header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+   exit();
 }
 
 if (isset($_REQUEST['botonIdioma'])) { // Comprobamos si el usuario a pulsado algún botón de idioma
@@ -32,5 +33,5 @@ if(isset($_REQUEST['salir'])){
     header('Location: ../214DWESProyectoDWES/indexProyectoDWES.html'); // Redirecciono al index de DWES
     exit;
 }
-
-require_once (!isset($_COOKIE['idioma']) ? $view['SP']['layout'] : $view[$_COOKIE['idioma']]['layout']); // Cargo la vista de 'inicioPublico' 
+ 
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPublico' 
