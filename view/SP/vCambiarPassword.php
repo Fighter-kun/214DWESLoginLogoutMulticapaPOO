@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vRegistro.php (Inglés)
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vCambiarContraseña.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
-
 <style>
     .obligatorio {
         background-color: #ffff7a;
@@ -17,97 +15,88 @@
         color: red;
         width: 450px;
     }
+    .errorException {
+        color:#FF0000;
+        font-weight:bold;
+    }
+    .respuestaCorrecta {
+        color:#4CAF50;
+        font-weight:bold;
+    }
 </style>
-
 <div class="container mt-3">
-    <div class="row text-center">
+    <div class="row d-flex justify-content-start">
         <div class="col">
             <!-- Codigo del formulario -->
-            <form name="insercionValoresTablaDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+            <form name="controlAcceso" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
                         <thead>
                             <tr>
-                                <th class="rounded-top" colspan="3"><legend>Sign In</legend></th>
+                                <th class="rounded-top" colspan="3"><legend>Cambiar Contraseña</legend></th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <!-- T01_CodUsuario Obligatorio -->
+                                <!-- contraseñaActual Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_CodUsuario">User:</label>
+                                    <label for="contraseñaActual">Contraseña Actual:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="obligatorio d-flex justify-content-start" type="text" name="T01_CodUsuario" value="<?php echo (isset($_REQUEST['T01_CodUsuario']) ? $_REQUEST['T01_CodUsuario'] : ''); ?>">
+                                    <input class="obligatorio d-flex justify-content-start" type="password" name="contraseñaActual" value="<?php echo (isset($_REQUEST['contraseñaActual']) ? $_REQUEST['contraseñaActual'] : ''); ?>">
                                 </td>
                                 <td class="error">
                                     <?php
-                                    if (!empty($aErrores['T01_CodUsuario'])) {
-                                        echo $aErrores['T01_CodUsuario'];
+                                    if (!empty($aErrores['contraseñaActual'])) {
+                                        echo $aErrores['contraseñaActual'];
                                     }
                                     ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                                 </td>
                             </tr>
                             <tr>
-                                <!-- T01_DescUsuario Obligatorio -->
+                                <!-- nuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_DescUsuario">Description Users:</label>
+                                    <label for="nuevaContraseña">Nueva Contraseña:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="obligatorio d-flex justify-content-start" type="text" name="T01_DescUsuario" value="<?php echo (isset($_REQUEST['T01_DescUsuario']) ? $_REQUEST['T01_DescUsuario'] : ''); ?>">
+                                    <input class="obligatorio d-flex justify-content-start" type="password" name="nuevaContraseña" value="<?php echo (isset($_REQUEST['nuevaContraseña']) ? $_REQUEST['nuevaContraseña'] : ''); ?>">
                                 </td>
                                 <td class="error">
                                     <?php
-                                    if (!empty($aErrores['T01_DescUsuario'])) {
-                                        echo $aErrores['T01_DescUsuario'];
+                                    if (!empty($aErrores['nuevaContraseña'])) {
+                                        echo $aErrores['nuevaContraseña'];
                                     }
                                     ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                                 </td>
                             </tr>
                             <tr>
-                                <!-- T01_Password Obligatorio -->
+                                <!-- repetirNuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_Password">Password:</label>
+                                    <label for="repetirNuevaContraseña">Repetir Nueva Contraseña:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="obligatorio d-flex justify-content-start" type="password" name="T01_Password" value="<?php echo (isset($_REQUEST['T01_Password']) ? $_REQUEST['T01_Password'] : ''); ?>">
+                                    <input class="obligatorio d-flex justify-content-start" type="password" name="repetirNuevaContraseña" value="<?php echo (isset($_REQUEST['repetirNuevaContraseña']) ? $_REQUEST['repetirNuevaContraseña'] : ''); ?>">
                                 </td>
                                 <td class="error">
                                     <?php
-                                    if (!empty($aErrores['T01_Password'])) {
-                                        echo $aErrores['T01_Password'];
-                                    }
-                                    ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
-                                </td>
-                            </tr>
-                            <tr>
-                                <!-- repetirPassword Obligatorio -->
-                                <td class="d-flex justify-content-start">
-                                    <label for="T01_Password">Repeat Password:</label>
-                                </td>
-                                <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
-                                                                                                                                    comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
-                                                                                                                                    que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="obligatorio d-flex justify-content-start" type="password" name="repetirPassword" value="<?php echo (isset($_REQUEST['repetirPassword']) ? $_REQUEST['repetirPassword'] : ''); ?>">
-                                </td>
-                                <td class="error">
-                                    <?php
-                                    if (!empty($aErrores['repetirPassword'])) {
-                                        echo $aErrores['repetirPassword'];
+                                    if (!empty($aErrores['repetirNuevaContraseña'])) {
+                                        echo $aErrores['repetirNuevaContraseña'];
                                     }
                                     ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                                 </td>
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
+                    <div class="text-center">
+                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirmar Cambios</button>
+                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancelar</button>
+                    </div>
                 </fieldset>
             </form>
         </div>

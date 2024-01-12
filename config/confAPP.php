@@ -29,7 +29,8 @@ $aController = [
     'miCuenta' => 'controller/cMiCuenta.php',
     'borrarCuenta' => 'controller/cBorrarCuenta.php',
     'wip' => 'controller/cWIP.php',
-    'error' => 'controller/cError.php'
+    'error' => 'controller/cError.php',
+    'cambiarContraseña' => 'controller/cCambiarPassword.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -45,7 +46,8 @@ $aView = [
         'miCuenta' => 'view/SP/vMiCuenta.php',
         'borrarCuenta' => 'view/SP/vBorrarCuenta.php',
         'wip' => 'view/SP/vWIP.php',
-        'error' => 'view/SP/vError.php'
+        'error' => 'view/SP/vError.php',
+        'cambiarContraseña' => 'view/SP/vCambiarPassword.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -58,6 +60,7 @@ $aView = [
         'miCuenta' => 'view/UK/vMiCuenta.php',
         'borrarCuenta' => 'view/UK/vBorrarCuenta.php',
         'wip' => 'view/UK/vWIP.php',
-        'error' => 'view/UK/vError.php'
+        'error' => 'view/UK/vError.php',
+        'cambiarContraseña' => 'view/UK/vCambiarPassword.php'
     ]
 ];

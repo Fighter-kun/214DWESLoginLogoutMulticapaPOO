@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vMiCuenta.php
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vMiCuenta.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 04/01/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 
 <style>
@@ -38,14 +38,14 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="rounded-top" colspan="3"><legend>Mi Cuenta</legend></th>
+                                <th class="rounded-top" colspan="3"><legend>My Account</legend></th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr>
                                 <!-- Usuario deshabilitado -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="user">Usuario:</label>
+                                    <label for="user">User:</label>
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="text" name="user"
@@ -57,7 +57,7 @@
                             <tr>
                                 <!-- Contraseña deshabilitado -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="passwordUsuarioAEditar">Contraseña:</label>
+                                    <label for="passwordUsuarioAEditar">Password:</label>
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="password" name="passwordUsuarioAEditar"
@@ -69,7 +69,7 @@
                             <tr>
                                 <!-- descripcionUsuarioAEditar Opcional -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_DescUsuario">Descripción:</label>
+                                    <label for="T01_DescUsuario">Description:</label>
                                 </td>
                                 <td>                                                      <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                           comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
@@ -88,7 +88,7 @@
                             <tr>
                                 <!-- nConexionesUsuarioAEditar deshabilitado -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="nConexionesUsuarioAEditar">Número de Conexiones:</label>
+                                    <label for="nConexionesUsuarioAEditar">Number of connections:</label>
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="text" name="nConexionesUsuarioAEditar"
@@ -102,7 +102,7 @@
                                 echo "<tr>
                                         <!-- fechaHoraUltimaConexionAnteriorUsuarioAEditar deshabilitado -->
                                         <td class=\"d-flex justify-content-start\">
-                                            <label for=\"fechaHoraUltimaConexionAnteriorUsuarioAEditar\">Fecha y Hora de Última Conexión:</label>
+                                            <label for=\"fechaHoraUltimaConexionAnteriorUsuarioAEditar\">Date and Time of Last Connection:</label>
                                         </td>
                                         <td>
                                             <input class=\"bloqueado d-flex justify-content-start\" type=\"text\" name=\"fechaHoraUltimaConexionAnteriorUsuarioAEditar\"
@@ -119,10 +119,10 @@
                 <div class="row d-flex justify-content-start">
                     <div class="col">
                         <form name="Programa" method="post">
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cambiarContraseña">Cambiar Contraseña</button>
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirmar Cambios</button>
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirMiCuenta">Cancelar</button>
-                            <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarU">Eliminar Usuario</button>
+                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cambiarContraseña">Change Password</button>
+                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
+                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirMiCuenta">Cancel</button>
+                            <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarU">Delete User</button>
                         </form> 
                     </div>
                 </div>

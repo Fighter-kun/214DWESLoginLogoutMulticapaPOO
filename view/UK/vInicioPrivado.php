@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: CodigoPrograma
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPublico.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 05/12/2023
+        Fecha de creación/modificación: 12/01/2024
 -->
 
 <style>
@@ -26,10 +26,10 @@
     <div class="row d-flex justify-content-start">
         <div class="col"><!-- Formulario donde recogemos los botones para ir a detalle o cerrar sesión -->
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cerrarSesion">Cerrar Sesion</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="detalle">Detalle</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Editar Perfil</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="mtoDepartamentos">Mto. Departamentos</button>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cerrarSesion">Logout</button><br><br>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="detalle">Detail</button><br><br>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Edit Profile</button><br><br>
+                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="mtoDepartamentos">Mt. Department</button>
             </form>        
         </div>
         <div class="col">
@@ -44,11 +44,11 @@
              * 
              */
             if ($numeroConexionesUsuario == 1) { // Compruebo si es la primera vez que se conecta y omito la fecha y hora de última conexión
-                echo("<div>Bienvenid@ ".$descripcionUsuario." esta es la ".$numeroConexionesUsuario." vez que te conectas;</div>");
+                echo("<div>Welcome ".$descripcionUsuario." this is the ".$numeroConexionesUsuario." time you connect;</div>");
             } else {
                 // Si se a conectado más veces muestro toda la información
-                echo("<div>Bienvenid@ ".$descripcionUsuario." esta es la ".$numeroConexionesUsuario." vez que te conectas; "
-                        . "usted se conectó por última vez el ".$fechaHoraUltimaConexionAnterior."</div>");
+                echo("<div>Welcome ".$descripcionUsuario." this is the ".$numeroConexionesUsuario." time you connect; "
+                        . "you last logged in on ".$fechaHoraUltimaConexionAnterior."</div>");
             }
             ?> 
         </div>

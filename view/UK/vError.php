@@ -1,7 +1,7 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vError.php
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vError.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 03/02/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 <div class="container mt-3">
     <div class="row mb-5">
@@ -14,19 +14,19 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Código:</td>
+                        <td>Code:</td>
                         <td><?php echo $sCodError ?></td>
                     </tr>
                     <tr>
-                        <td>Descripción:</td>
+                        <td>Description:</td>
                         <td><?php echo $sDescError ?></td>
                     </tr>
                     <tr>
-                        <td>Archivo:</td>
+                        <td>File:</td>
                         <td><?php echo $sArchivoError ?></td>
                     </tr>
                     <tr>
-                        <td>Línea:</td>
+                        <td>Line:</td>
                         <td><?php echo $iLineaError ?></td>
                     </tr>
                 </tbody>
@@ -36,7 +36,7 @@
     <div class="row">
         <div class="col text-center">
             <form method="post" action="indexLoginLogoutMulticapaPOO.php">
-                <button class="btn btn-secondary" type="submit" name="salirDelError">Salir</button>
+                <button class="btn btn-secondary" type="submit" name="salirDelError">Exit</button>
             </form>
         </div>
     </div>

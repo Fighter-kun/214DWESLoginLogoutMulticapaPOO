@@ -11,7 +11,7 @@
 
 //Si el usuario pulsa el botón 'Cambiar Contraseña', mando al usuario al index de DWES
 if(isset($_REQUEST['cambiarContraseña'])){ 
-    $_SESSION['paginaEnCurso'] = 'miCuenta'; // Asigno a la página en curso la pagina de miCuenta
+    $_SESSION['paginaEnCurso'] = 'cambiarContraseña'; // Asigno a la página en curso la pagina de cambiarContraseña
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -39,6 +39,7 @@ if(isset($_REQUEST['confirmarCambios'])){
 }
 // Si la entrada esta correcta iniciamos la modificación del la descripción del usuario
 if ($entradaOK) { 
+    // Utilizamos el método 'modificarUsuario()' de la clase 'UsuarioPDO' para cambiar la descripción y almacenarla en la variable de sesión
     $_SESSION['user214DWESLoginLogoutMulticapaPOO'] = UsuarioPDO::modificarUsuario($_SESSION['user214DWESLoginLogoutMulticapaPOO'], $_REQUEST['T01_DescUsuario']);
     $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la página en curso la pagina de inicioPrivado
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP

@@ -2,7 +2,7 @@
 <!--
         Descripción: 214DWESLoginLogoutMulticapaPOO -- layout.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 02/01/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 <html lang="es">
     <head>

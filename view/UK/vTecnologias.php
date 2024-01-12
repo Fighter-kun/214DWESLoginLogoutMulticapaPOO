@@ -1,7 +1,7 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vTecnologias.php
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vTecnologias.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 10/01/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 <style>
     .ejercicio {
@@ -11,7 +11,7 @@
 <div class="row d-flex justify-content-start">
     <div class="col">
         <form name="tecnologias" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirTecnologias">Salir</button>
+            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirTecnologias">Exit</button>
         </form>        
     </div>
     <div class="col">

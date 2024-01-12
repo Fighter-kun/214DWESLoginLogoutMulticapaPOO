@@ -1,7 +1,7 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPublico.php
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPublico.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 02/01/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 <div class="container mt-3">
     <div class="row mb-5">
