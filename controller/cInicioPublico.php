@@ -27,11 +27,5 @@ if(isset($_REQUEST['login'])){
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
-
-//Si el usuario pulsa el botón 'Salir', mando al usuario al index de DWES
-if(isset($_REQUEST['salir'])){ 
-    header('Location: ../214DWESProyectoDWES/indexProyectoDWES.html'); // Redirecciono al index de DWES
-    exit;
-}
  
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPublico' 

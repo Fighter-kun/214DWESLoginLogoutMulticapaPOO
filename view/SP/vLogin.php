@@ -85,7 +85,7 @@
                                 </tbody>
                             </table>
                             <div class="text-center">
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Iniciar Sesion</button>
+                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Iniciar Sesión</button>
                                 <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
                                 <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
                             </div>

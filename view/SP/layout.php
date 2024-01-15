@@ -32,7 +32,7 @@
 
     <body>
         <header class="text-center">
-            <h1>Aplicación LoginLogoutMulticapaPOO</h1>
+            <h1>Aplicación LoginLogoutMulticapaPOO - <?php echo $aTitleLang[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']]?></h1>
         </header>
         <main>
             <div class="container">
@@ -46,12 +46,10 @@
         <footer class="position-fixed bottom-0 end-0">
             <div class="row text-center">
                 <div class="footer-item">
-                    <address>© <a href="../index.html" style="color: white; text-decoration: none; background-color: #666;">Carlos García Cachón</a>
+                    <address>© <a href="../index.html" target="_blank" style="color: white; text-decoration: none; background-color: #666;">Carlos García Cachón</a>
                         IES LOS SAUCES 2023-24 </address>
                 </div>
-                <div class="footer-item">
-                    <a href="../214DWESProyectoDWES/indexProyectoDWES.html" style="color: white; text-decoration: none; background-color: #666;">Inicio</a>
-                </div>
+                <div class="footer-item"></div>
                 <div class="footer-item">
                     <a href="https://github.com/Fighter-kun/214DWESLoginLogoutMulticapaPOO.git" target="_blank"><img
                             src="webroot/media/images/github.png" alt="LogoGitHub" /></a>

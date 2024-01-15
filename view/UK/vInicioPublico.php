@@ -24,7 +24,7 @@
                         <img src="doc/archivosApp.PNG" class="img-fluid" alt="Mapeo de la Aplicación">
                     </div>
                     <div class="carousel-item">
-                        <img src="doc/diagramaApp.PNG" class="img-fluid" alt="Mapeo de la Aplicación">
+                        <img src="doc/modelo.png" class="img-fluid" alt="Mapeo de la Aplicación">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
@@ -42,7 +42,6 @@
         <div class="col text-center">
             <form method="post" action="indexLoginLogoutMulticapaPOO.php">
                 <button class="btn btn-secondary" type="submit" name="login">Login</button>
-                <button class="btn btn-secondary" type="submit" name="salir">Exit</button>
             </form>
         </div>
     </div>

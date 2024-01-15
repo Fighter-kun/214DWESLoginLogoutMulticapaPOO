@@ -64,3 +64,30 @@ $aView = [
         'cambiarContraseña' => 'view/UK/vCambiarPassword.php'
     ]
 ];
+
+$aTitleLang = [
+    'SP' => [
+        'inicioPublico' => 'Inicio Público',
+        'login' => 'Inicio de Sesión',
+        'inicioPrivado' => 'Inicio Privado',
+        'tecnologias' => 'Tecnologías',
+        'registro' => 'Registro',
+        'miCuenta' => 'Mi Cuenta',
+        'borrarCuenta' => 'Borrar Cuenta',
+        'wip' => 'Zona En Construcción',
+        'error' => 'Error',
+        'cambiarContraseña' => 'Cambiar Contraseña'
+    ],
+    'UK' => [
+        'inicioPublico' => 'Public Home',
+        'login' => 'Login',
+        'inicioPrivado' => 'Private Home',
+        'tecnologias' => 'Technologies',
+        'registro' => 'Registration',
+        'miCuenta' => 'My Account',
+        'borrarCuenta' => 'Delete Account',
+        'wip' => 'Work in Progress',
+        'error' => 'Error',
+        'cambiarContraseña' => 'Change Password'
+    ]
+];
