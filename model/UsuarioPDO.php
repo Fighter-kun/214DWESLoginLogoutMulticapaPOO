@@ -34,18 +34,19 @@ class UsuarioPDO implements UsuarioDB {
             $oUsuario = $resultado->fetchObject(); // Guardo en la variable el resultado de la consulta en forma de objeto
 
             if ($oUsuario) { // Instancio un nuevo objeto Usuario con todos sus datos
-                 $oUsuario = new Usuario(
-                    $oUsuario->T01_CodUsuario,
-                    $oUsuario->T01_Password,
-                    $oUsuario->T01_DescUsuario,
-                    $oUsuario->T01_NumConexiones,
-                    $oUsuario->T01_FechaHoraUltimaConexion,
-                    $oUsuario->T01_FechaHoraUltimaConexionAnterior,
-                    $oUsuario->T01_Perfil
+               return $oUsuarioNuevo = new Usuario( // Y lo devuelvo
+                        $oUsuario->T01_CodUsuario,
+                        $oUsuario->T01_Password,
+                        $oUsuario->T01_DescUsuario,
+                        $oUsuario->T01_NumConexiones,
+                        $oUsuario->T01_FechaHoraUltimaConexion,
+                        $oUsuario->T01_FechaHoraUltimaConexionAnterior = NULL,
+                        $oUsuario->T01_Perfil
                 );
+            } else {
+                return $oUsuario;
             }
         }
-        return $oUsuario; // Y lo devuelvo
     }
 
     /**

@@ -49,7 +49,7 @@
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="text" name="user"
-                                           value="<?php echo ($codigoUsuarioActual); ?>" disabled>
+                                           value="<?php echo ($aVMiCuenta['codigoUsuarioActual']); ?>" disabled>
                                 </td>
                                 <td class="error">
                                 </td>
@@ -61,7 +61,7 @@
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="password" name="passwordUsuarioAEditar"
-                                           value="<?php echo ($contraseñaUsuarioActual); ?>" disabled>
+                                           value="<?php echo ($aVMiCuenta['contraseñaUsuarioActual']); ?>" disabled>
                                 </td>
                                 <td class="error">
                                 </td>
@@ -75,7 +75,7 @@
                                                                                           comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
                                                                                           que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '$descripcionUsuarioActual' .-->
                                     <input class="d-flex justify-content-start" type="text" name="T01_DescUsuario" 
-                                           value="<?php echo (isset($_REQUEST['T01_DescUsuario']) ? $_REQUEST['T01_DescUsuario'] : $descripcionUsuarioActual); ?>">
+                                           value="<?php echo (isset($_REQUEST['T01_DescUsuario']) ? $_REQUEST['T01_DescUsuario'] : $aVMiCuenta['descripcionUsuarioActual']); ?>">
                                 </td>
                                 <td class="error">
                                     <?php
@@ -92,13 +92,13 @@
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="text" name="nConexionesUsuarioAEditar"
-                                           value="<?php echo ($nConexionesUsuarioActual); ?>" disabled>
+                                           value="<?php echo ($aVMiCuenta['nConexionesUsuarioActual']); ?>" disabled>
                                 </td>
                                 <td class="error">
                                 </td>
                             </tr>
                             <?php
-                            if ($nConexionesUsuarioActual > 1) {
+                            if ($aVMiCuenta['fechaHoraUltimaConexionAnteriorUsuarioActual'] > 1) {
                                 echo "<tr>
                                         <!-- fechaHoraUltimaConexionAnteriorUsuarioAEditar deshabilitado -->
                                         <td class=\"d-flex justify-content-start\">
@@ -106,7 +106,7 @@
                                         </td>
                                         <td>
                                             <input class=\"bloqueado d-flex justify-content-start\" type=\"text\" name=\"fechaHoraUltimaConexionAnteriorUsuarioAEditar\"
-                                                value=\"$fechaHoraUltimaConexionAnteriorUsuarioActual\" disabled>
+                                                value=\"" . $aVMiCuenta['fechaHoraUltimaConexionAnteriorUsuarioActual'] . "\" disabled>
                                         </td>
                                         <td class=\"error\">
                                         </td>

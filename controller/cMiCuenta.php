@@ -61,11 +61,14 @@ if(isset($_REQUEST['eliminarU'])){
 }
 
 // Almaceno...
-$codigoUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_codUsuario(); // Código del usuario actual
-$contraseñaUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_password(); // Contraseña del usuario actual
-$descripcionUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descUsuario(); // Descripción del usuario actual
-$nConexionesUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(); // Número de conexiones del usuario actual
-$fechaHoraUltimaConexionAnteriorUsuarioActual = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior(); // Fecha y hora de la última conexión del usuario actual
+$aVMiCuenta = [
+    'codigoUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_codUsuario(), // Código del usuario actual
+    'contraseñaUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_password(), // Contraseña del usuario actual
+    'descripcionUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descUsuario(), // Descripción del usuario actual
+    'nConexionesUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(), // Numero de conexiones del usuario actual
+    'fechaHoraUltimaConexionAnteriorUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior() // Fecha/Hora conexión anterior del usuario actual
+];
+
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'miCuenta'
 

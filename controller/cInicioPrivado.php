@@ -18,22 +18,21 @@ if(isset($_REQUEST['cerrarSesion'])){
 
 //Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
 if(isset($_REQUEST['detalle'])){
-    $_SESSION['paginaEnCurso'] = 'tecnologias'; // Asigno a la página en curso la pagina de tecnologias
+    $_SESSION['paginaEnCurso'] = 'detalle'; // Asigno a la página en curso la pagina de detalle
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Editar Perfil', mando al usuario al index de DWES
 if(isset($_REQUEST['editarPerfil'])){
-    $_SESSION['paginaEnCurso'] = 'miCuenta'; // Asigno a la página en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaEnCurso'] = 'miCuenta'; // Asigno a la página en curso la pagina de miCuenta
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
 if(isset($_REQUEST['mtoDepartamentos'])){
-    $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Guardo la página actual como anterior para poder volvera ella
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }

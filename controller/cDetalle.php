@@ -5,7 +5,7 @@
  * @since 10/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cTecnologias'
+ * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cDetalle'
  * 
  */
 
@@ -16,4 +16,4 @@ if(isset($_REQUEST['salirTecnologias'])){
     exit;
 }
 
-require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'tecnologias' 
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'detalle' 

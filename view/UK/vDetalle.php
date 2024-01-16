@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vTecnologias.php (Inglés)
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vDetalle.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
@@ -31,7 +31,9 @@
         foreach ($_SESSION as $key => $valor) {
             if ($key === 'user214DWESLoginLogoutMulticapaPOO' && $valor instanceof Usuario) {
                 // Accede a las propiedades o métodos del objeto Usuario para obtener la información deseada
-                echo('<u>' . $key . '</u> => <b>' . $valor->get_CodUsuario() . '</b><br>');
+                echo('<pre>');
+                var_dump($_SESSION['user214DWESLoginLogoutMulticapaPOO']);
+                echo ('</pre>');
             } else {
                 echo('<u>' . $key . '</u> => <b>' . $valor . '</b><br>');
             }
@@ -67,8 +69,10 @@
                         // Manejar el caso de un array
                         echo('<u>' . $clave . '</u> => <b>Array</b><br>');
                     } elseif (is_object($valor2) && $valor2 instanceof Usuario) {
-                        // Acceder a las propiedades o métodos del objeto Usuario para obtener la información deseada
-                        echo('<u>' . $clave . '</u> => <b>' . $valor2->get_CodUsuario() . '</b><br>');
+                        // Accede a las propiedades o métodos del objeto Usuario para obtener la información deseada
+                        echo('<pre>');
+                        var_dump($_SESSION['user214DWESLoginLogoutMulticapaPOO']);
+                        echo ('</pre>');
                     } else {
                         // Otros tipos de datos
                         echo('<u>' . $clave . '</u> => <b>' . $valor2 . '</b><br>');
