@@ -1,10 +1,10 @@
 <?php
 
 /**
- * @author Carlos García Cachón
+ * @author Original Alberto Fernández Ramírez
  * @version 1.0
  * @since 03/01/2024
- * @copyright Todos los derechos reservados a Carlos García
+ * Modificado por @author Carlos García Cachón
  * 
  * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase UsuarioPDO
  * 
@@ -34,18 +34,19 @@ class UsuarioPDO implements UsuarioDB {
             $oUsuario = $resultado->fetchObject(); // Guardo en la variable el resultado de la consulta en forma de objeto
 
             if ($oUsuario) { // Instancio un nuevo objeto Usuario con todos sus datos
-                 $oUsuario = new Usuario(
-                    $oUsuario->T01_CodUsuario,
-                    $oUsuario->T01_Password,
-                    $oUsuario->T01_DescUsuario,
-                    $oUsuario->T01_NumConexiones,
-                    $oUsuario->T01_FechaHoraUltimaConexion,
-                    $oUsuario->T01_FechaHoraUltimaConexionAnterior,
-                    $oUsuario->T01_Perfil
+               return $oUsuarioNuevo = new Usuario( // Y lo devuelvo
+                        $oUsuario->T01_CodUsuario,
+                        $oUsuario->T01_Password,
+                        $oUsuario->T01_DescUsuario,
+                        $oUsuario->T01_NumConexiones,
+                        $oUsuario->T01_FechaHoraUltimaConexion,
+                        $oUsuario->T01_FechaHoraUltimaConexionAnterior = NULL,
+                        $oUsuario->T01_Perfil
                 );
+            } else {
+                return $oUsuario;
             }
         }
-        return $oUsuario; // Y lo devuelvo
     }
 
     /**
@@ -86,7 +87,7 @@ class UsuarioPDO implements UsuarioDB {
             UPDATE T01_Usuario SET T01_DescUsuario="{$descUsuario}" WHERE T01_CodUsuario="{$oUsuario->get_CodUsuario()}";
         CONSULTA;
 
-        $oUsuario->setDescUsuario($descUsuario);
+        $oUsuario->set_DescUsuario($descUsuario);
 
         if (DBPDO::ejecutaConsulta($consultaModificarUsuario)) { // Ejecuto la consulta
             return $oUsuario; // Devuelvo un objeto Usuario
@@ -151,5 +152,35 @@ class UsuarioPDO implements UsuarioDB {
         DBPDO::ejecutaConsulta($consultaActualizacionFechaUltimaConexion);
 
         return $oUsuario;
+    }
+    
+    /**
+     * Metodo cambiarPassword()
+     * 
+     * Metodo que nos permite cambiar la password anterior por una nueva
+     * 
+     * @param object $oUsuario Objeto usuario
+     * @param string $password La password nueva
+     * 
+     * @return boolean Un objeto usuario si el usuario existe y se puede cambiar la password, de lo contrario un boolean a false
+     */
+    public static function cambiarPassword($oUsuario, $password){
+        //Consulta SQL para modificar la password de un usuario
+        $consultaModificarPassword = <<<CONSULTA
+            UPDATE T01_Usuario SET T01_Password=SHA2("{$oUsuario->get_CodUsuario()}{$password}", 256) WHERE T01_CodUsuario="{$oUsuario->get_CodUsuario()}";
+        CONSULTA;
+        
+        /*
+         * La siguente línea de código hago un hash con la nueva contraseña, para que cuando edite la 
+         * contraseña del objeto Usuario, no me la guarde en el objeto sin encriptar.
+         */
+        $hashPassword = hash("sha256", ($oUsuario->get_CodUsuario() . $password)); 
+        $oUsuario->set_Password($hashPassword);
+        
+        if(DBPDO::ejecutaConsulta($consultaModificarPassword)){
+            return $oUsuario;
+        }else{
+            return false;
+        }
     }
 }

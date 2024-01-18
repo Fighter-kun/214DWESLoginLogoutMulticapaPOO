@@ -11,21 +11,28 @@
 
 //Si el usuario pulsa el botón 'Cerrar Sesion', mando al usuario al index de DWES
 if(isset($_REQUEST['cerrarSesion'])){
-    session_unset(); // Elimino la sesión
+    session_destroy(); // Elimino la sesión
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
 if(isset($_REQUEST['detalle'])){
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaEnCurso'] = 'detalle'; // Asigno a la página en curso la pagina de detalle
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
 //Si el usuario pulsa el botón 'Editar Perfil', mando al usuario al index de DWES
 if(isset($_REQUEST['editarPerfil'])){
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la pagina en curso la pagina de WIP (Work in Progress)
+    $_SESSION['paginaEnCurso'] = 'miCuenta'; // Asigno a la página en curso la pagina de miCuenta
+    header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+//Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
+if(isset($_REQUEST['mtoDepartamentos'])){
+    $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -34,4 +41,4 @@ $descripcionUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descU
 $numeroConexionesUsuario = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(); // Recupero y almaceno el número de conexiones del usuario actual
 $fechaHoraUltimaConexionAnterior = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior(); // Recupero y almaceno la fecha y hora de conexión anterior del usuario actual
 
-require_once $view['layout']; // Cargo la vista de 'inicioPrivado'
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPrivado'

@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vLogin.php
+        Descripción: 214DWESLoginLogoutMulticapaPOO -- vLogin.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 02/01/2024
+        Fecha de creación/modificación: 12/01/2024
 -->
 
 <style>
@@ -26,7 +26,6 @@
         font-weight:bold;
     }
 </style>
-</head>
 
 <body>
     <main>
@@ -46,7 +45,7 @@
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="user">Usuario:</label>
+                                            <label for="user">User:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -66,7 +65,7 @@
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="password">Contraseña:</label>
+                                            <label for="password">Password:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -86,9 +85,9 @@
                                 </tbody>
                             </table>
                             <div class="text-center">
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Iniciar Sesion</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
+                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Login</button>
+                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
+                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
                             </div>
                         </fieldset>
                     </form>

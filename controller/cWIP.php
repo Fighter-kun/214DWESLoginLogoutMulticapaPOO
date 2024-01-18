@@ -11,9 +11,9 @@
 
 // Si el usuario pulsa el botón 'Salir', mando al usuario a la página 'inicioPublico'
 if(isset($_REQUEST['salirDeWIP'])){ 
-    $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la página en curso la página inicioPublico
+    $_SESSION['paginaEnCurso'] = $_SESSION['paginaAnterior']; // Asigno a la página en curso la página "anterior"
     header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
     exit;
 }
 
-require_once $view['layout']; // Cargo la vista de 'WIP'
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'WIP'

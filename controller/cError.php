@@ -17,10 +17,15 @@ if(isset($_REQUEST['salirDelError'])){
     exit;
 }
 
-// Asigno a cada variable los datos almacenamos la variable se sesión 'error' 
-$sCodError = $_SESSION['error']->get_CodError(); // Código del error
-$sDescError = $_SESSION['error']->get_DescError(); // Descripción del error
-$sArchivoError = $_SESSION['error']->get_ArchivoError(); // Archivo donde ocurrio el error
-$iLineaError = $_SESSION['error']->get_LineaError(); // Línea en la cual se produjo el error
+if(isset($_SESSION['error'])){ 
+    // Asigno a cada variable los datos almacenamos la variable se sesión 'error' 
+    $sCodError = $_SESSION['error']->get_CodError(); // Código del error
+    $sDescError = $_SESSION['error']->get_DescError(); // Descripción del error
+    $sArchivoError = $_SESSION['error']->get_ArchivoError(); // Archivo donde ocurrio el error
+    $iLineaError = $_SESSION['error']->get_LineaError(); // Línea en la cual se produjo el error
+    
+    header('Location: indexLoginLogoutMulticapaPOO.php'); // Redirecciono al index de la APP
+    exit;
+}
 
-require_once $view['layout']; // Cargo la vista de 'error'
+require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'error'
